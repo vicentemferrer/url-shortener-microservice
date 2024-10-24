@@ -3,6 +3,8 @@ import cors from 'cors'
 
 process.loadEnvFile()
 
+import staticRoute from './routes/static.route.js'
+
 const app = express()
 
 app.use(cors())
