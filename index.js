@@ -3,22 +3,20 @@ import cors from 'cors'
 
 process.loadEnvFile()
 
+import { buildHome } from './controllers/home.controller.js'
 import staticRoute from './routes/static.route.js'
 
 const app = express()
 
 app.use(cors())
 
-app.use('/public', express.static(`${process.cwd()}/public`));
+app.use(staticRoute)
 
-app.get('/', function (req, res) {
-    res.sendFile(process.cwd() + '/views/index.html');
-});
+app.get('/', buildHome)
 
-// Your first API endpoint
 app.get('/api/hello', function (req, res) {
     res.json({ greeting: 'hello API' });
-});
+})
 
 const { PORT, HOST } = process.env
 

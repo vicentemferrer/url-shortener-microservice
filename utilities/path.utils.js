@@ -1,6 +1,6 @@
-const { NODE_ENV } = process.env
-
 function pathSeparator() {
+    const { NODE_ENV } = process.env
+
     return NODE_ENV === 'development' ? '\\' : '/'
 }
 
